@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GridBaseService} from './grid-base.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'grid-base-example';
+
+  constructor(private gridBaseService: GridBaseService) {
+    this.getData()
+  }
+
+
+  getData() {
+   this.gridBaseService.getData().subscribe((data) => {
+     console.log(data)
+   })
+ }
 }
